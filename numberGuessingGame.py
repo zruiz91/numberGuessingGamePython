@@ -18,12 +18,33 @@
 #     guesses = 5
 #   else:
 #     print("Invalid input")
-
+# def decide_difficulty(difficulty_level):
+#   if difficulty_level == "easy":
+#     return guesses + 10
+#   elif difficulty_level == "hard":
+#     return guesses + 5
+#   else:
+#     print("Invalid input")
+#     decide_difficulty(difficulty_level)
+    
+  
 from art import logo
 import random
 target_number = random.randint(1, 100)
-guesses = 0
 game_over = False
+guesses = 0
+
+def decide_difficulty(difficulty_level):
+  if difficulty_level == "easy":
+    return guesses + 10
+  elif difficulty_level == "hard":
+    return guesses + 5
+  else:
+    print("Invalid input")
+    decide_difficulty(difficulty_level)
+
+
+  
 
 print(logo)
 print("Welcome to the Number Guessing Game!")
@@ -32,12 +53,9 @@ print(f"Pssst, the correct answer is {target_number}")
 
 difficulty_level = input("Choose a difficulty. Type 'easy' or 'hard': ").lower()
 
-if difficulty_level == "easy":
-  guesses = 10
-elif difficulty_level == "hard":
-  guesses = 5
-else:
-  print("Invalid input")
+guesses = decide_difficulty(difficulty_level)
+
+
 
 while game_over == False:
   if guesses != 0:
